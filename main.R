@@ -16,7 +16,7 @@ sessionInfo()
 
 
 
-##  WARNING: THE NEXT SCIPTS TAKE VERY LONG TO RUN, THEREFORE RESULTS ARE SAVED IN "storedResults/". Uncomment if you want to run them anyways 
+##  WARNING: THE NEXT SCIPTS TAKE VERY LONG TO RUN, THEREFORE RESULTS ARE PRECALCULATED AND SAVED IN "storedResults/". Uncomment if you want to run them anyways 
 
  # source("midpoint_functions.R")                                   ## functions to estimate mid points: 
  # 
@@ -39,7 +39,10 @@ source("mid-point.R")                                              ## Use the mi
 
 source("tables_manuscript.R")                                      ## Create tables and figures which are used in the main text. The results are stored in the folder "manuscript_files"
 
+
 source("descriptives.R")                                           ## Make some descriptive statistics
+
+source("graph_errorML.R")                                          ## Create Error Plot for ML Estimates
 
 source("prepare_Eurostat.R")                                       ## Download and prepare Eurostat data and compare with sample data
 

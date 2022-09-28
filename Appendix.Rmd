@@ -1,7 +1,7 @@
 ---
 title: "Appendix for 'Farmers' risk preferences in eleven European farming systems: A multi-country replication of Bocquého et al. (2014)'"
 author: "Author names anonymized for review process"
-date: "10 January 2022"
+date: "Spetember 2022"
 always_allow_html: true
 output:
   bookdown::html_document2: 
@@ -15,8 +15,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, cache = FALSE, warning=FALSE, message=FALSE)
 
- .libPaths( c("/usr/lib/R/library" ,"/usr/local/lib/R/site-library", "/usr/lib/R/site-library"))
- .libPaths()
+ #.libPaths( c("/usr/lib/R/library" ,"/usr/local/lib/R/site-library", "/usr/lib/R/site-library"))
+ #.libPaths()
 
  getwd()
 
@@ -123,7 +123,7 @@ kable(desc_soc , digits = 2 ,col.names = c("", "",rep(c("Mean", "SD"), times= (n
 
 \newpage 
 
-### Detailed socio-demographic variables by sample
+<!-- ### Detailed socio-demographic variables by sample -->
 
 
 
@@ -254,7 +254,7 @@ kable(table_Sex_ours , col.names = conames ) %>%
 
 <div style="text-align: justify">
 
-In Austria, all arable farms who are part of the Integrated Administration and Control System data constituted the population for the survey. The survey region was Lower Austria with approximately 8,700 arable farms. The survey started at the end of September and ended in the beginning of December 2021. During farm advisory meetings for arable farmers the survey was explained, including a screening of the video translated into German. Each of the 194 farmers responded individually, out of which 145 surveys (74 percent or 1.6 percent of the survey population) were analysed after plausibility and consistency checks. All participants were compensated for their participation using vouchers consisting of a fixed payment of 10 Euros (in the form of a meal and a drink) and a payment linked to their choices. Sixty farmers provided an email for payments and the average payment was 11.87 Euro (ranging from 2.90 Euro to 65 Euro). 
+In Austria, all arable farms who are part of the Integrated Administration and Control System data constituted the population for the survey. The survey region was Lower Austria with approximately 8,700 arable farms. The survey started at the end of September and ended in the beginning of December 2021. During farm advisory meetings for arable farmers the survey was explained, including a screening of the video translated into German. Each of the 194 farmers responded individually, out of which 128 farmers (66 percent) completed the lottery tasks and were used for analysis. All participants were compensated for their participation using vouchers consisting of a fixed payment of 10 Euros (in the form of a meal and a drink) and a payment linked to their choices. Sixty farmers provided an email for payments and the average payment was 11.87 Euro (ranging from 2.90 Euro to 65 Euro). 
 
 </div>
 
@@ -262,7 +262,7 @@ In Austria, all arable farms who are part of the Integrated Administration and C
 
 <div style="text-align: justify">
 
-In Croatia, the target group were winegrowers and wine producers from all over Croatia. A list of 637 winegrowers and wine producers was compiled, using publicly available data from web sources. Personalised emails with an invitation link to an online survey were sent to all 637 winegrowers or wine producers in the period from July to September 2021. A video explaining the experimental task was available in Croatian. A total of 130 respondents took part in the survey, of which 120 agreed to participate and 110 completed the survey in full. This results in an effective response rate of approximately 17 percent. 90 respondents (= 81.8 percent) provided an email address to be eligible for payment. Of all respondents, 70 (= 63.6 percent) signed up for the debriefing. One in ten participants received a voucher by email. The average value of the voucher was approximately 11 Euro (minimum 7 Euro, maximum 19 Euro). 
+In Croatia, the target group were winegrowers and wine producers from all over Croatia. A list of 637 winegrowers and wine producers was compiled, using publicly available data from web sources. Personalised emails with an invitation link to an online survey were sent to all 637 winegrowers or wine producers in the period from July to September 2021. A video explaining the experimental task was available in Croatian. A total of 130 respondents took part in the survey, of which 120 agreed to participate and 104 completed the survey in full. This results in an effective response rate of approximately 16 percent. 90 respondents (= 87 percent) provided an email address to be eligible for payment. Of all respondents, 70 (= 67 percent) signed up for the debriefing. One in ten participants received a voucher by email. The average value of the voucher was approximately 11 Euro (minimum 7 Euro, maximum 19 Euro). 
 
 </div>
 
@@ -384,7 +384,7 @@ sh <- list(  digits = 3 , ci.force = TRUE , ci.test=NA , stars = numeric(0) ,  c
 \newpage
 
 
-### Results over all samples in Expected Utility model with covariates (re-estimation of table 4 in main text)
+## Results over all samples in Expected Utility model with covariates (re-estimation of table 4 in main text)
 
 ```{r, warning=FALSE, results='asis' }
 
@@ -401,7 +401,7 @@ do.call(htmlreg, c(list(l=mlmodels_EU_cov_html ),sh))
 \newpage
 
 
-### Results over all samples in Exponential Power model with covariates (re-estimation of table 5 in main text)
+## Results over all samples in Exponential Power model with covariates (re-estimation of table 5 in main text)
 
 ```{r results='asis'}
 
@@ -418,7 +418,7 @@ do.call(htmlreg, c(list(l=mlmodels_EX_cov_html),sh))
 
 \newpage
 
-### Results over all samples in Prospect Theory model with covariates (re-estimation of table 6 in main text)
+## Results over all samples in Prospect Theory model with covariates (re-estimation of table 6 in main text)
  
 ```{r results='asis'}
  
@@ -488,7 +488,7 @@ The plots are similar to those from the main text but in a larger resolution.
 
 graphs <- list()
 
-ucnames<- c(gamma_Mid="\u03b3", lambda_Mid="\u03bb" ,sigma_Mid="\u03c3")
+ucnames<- c(sigma_Mid="\u03c3", lambda_Mid="\u03bb" ,gamma_Mid="\u03b3")
 
 for (c in c("All Countries",levels(midpoints_backup$Country)) ) {
 
@@ -496,7 +496,7 @@ if(c!="All Countries")  midpoints<- midpoints_backup[midpoints_backup$Country==c
 
 
 
-for (par in c("gamma_Mid", "lambda_Mid" , "sigma_Mid")) {
+for (par in c("sigma_Mid", "lambda_Mid" ,"gamma_Mid" )) {
   
   
   
@@ -1027,6 +1027,8 @@ do.call(htmlreg, c(list(l=mlmodels_PT_cov_html , caption = ""),sh))
 
 \newpage
 
+
+
 # Follow-up comprehension and assessment questions
 
 Directly after the lottery choices, participants responded to three items on their comprehension and attitude towards the survey. Responses are on a 5-point scale ranging from strongly disagree to strongly agree.
@@ -1040,7 +1042,7 @@ Directly after the lottery choices, participants responded to three items on the
 
 \newpage
 
-### Self-assessed difficulty in understanding the task 
+## Self-assessed difficulty in understanding the task 
 
 ```{r}
 Understanding[[1]]
@@ -1055,7 +1057,7 @@ Understanding[[1]]
 
 \newpage
 
-### Self-assessed randomness of lottery choices
+## Self-assessed randomness of lottery choices
 
 ```{r}
 Understanding[[2]]
@@ -1072,7 +1074,7 @@ Understanding[[2]]
 
 \newpage
 
-### Self-assessment of number of lottery choices
+## Self-assessment of number of lottery choices
 
 ```{r}
 Understanding[[3]]

@@ -67,7 +67,7 @@ output[["additional"]] <- c(LogLik_NULL=llNull, LogLik_conv =ll, Nobs = n, Nresp
 
 }
 
-
+## Expected Utility model
 
 eumodel <- function(pars, y, p_LA  , p_RA, p_LB , p_RB , X_LA , X_RA, X_LB, X_RB , covar_ll, weights) {
   
@@ -102,6 +102,8 @@ eumodel <- function(pars, y, p_LA  , p_RA, p_LB , p_RB , X_LA , X_RA, X_LB, X_RB
   
 }
 
+## Exponential power model
+
 expower <- function(pars, y, p_LA , p_RA, p_LB , p_RB , X_LA , X_RA, X_LB, X_RB ,  covar_ll, weights) {
  
   if (!is.null(covar_ll)) {
@@ -134,6 +136,8 @@ expower <- function(pars, y, p_LA , p_RA, p_LB , p_RB , X_LA , X_RA, X_LB, X_RB 
   )
 }
 
+
+##prospect theory model
 
 pt <- function(pars, y, p_LA , p_RA, p_LB , p_RB , X_LA , X_RA, X_LB, X_RB,  covar_ll, weights) {
   
@@ -198,4 +202,51 @@ Nullm <- function(pars,y){
 }
 
 
-#testmodel<-mplLL(logLik =  eumodel ,method ="NR",start =c(r= 0.2),y =ChooseA, p_LA=p_LA , p_RA = p_RA, p_LB= p_LB , p_RB = p_RB , X_LA = X_LA , X_RA=X_RA, X_LB=X_LB, X_RB=X_RB, d=ml_data, cluster=ID)
+eumodel2 <- function(pars, y, p_LA  , p_RA, p_LB , p_RB , X_LA , X_RA, X_LB, X_RB , covar_ll, weights, Ferchner=FALSE) {
+  
+  
+  if (!is.null(covar_ll)) {
+    
+    cvars <-cbind(1,as.matrix(as.data.frame(mget(covar_ll , envir = as.environment("d")))))
+    
+    r <-cvars%*%pars[c("r_const",paste("r",covar_ll,sep = "_"))]
+    ferchner <- pars["ferchner"]
+    
+    
+  }   
+  else {r <-pars["r"]
+            ferchner<- pars["ferchner"]
+  
+            }
+  
+ # if (Ferchner==TRUE) {
+ #   r <- rbind(r,"noise")
+ #   
+ # } else(noise<-1)
+  
+  
+  U <-function(x) {ifelse(x>0,
+                          x^(r),
+                          -(-x)^(r))
+  }
+  
+  lp <-  ((p_LA*U(X_LA) +p_RA*U(X_RA) )  - (p_LB*U(X_LB) + p_RB*U(X_RB)  ))/ferchner
+  
+  
+  
+  
+  return(
+    
+    (weights)*(y*log(pnorm(lp))+(1-y)*log(1-pnorm(lp)))
+    
+  )
+  
+}
+
+
+#testmodel<-mplLL(covar_ll = c("Age", "NbChildren"), logLik =  eumodel2 ,method ="NR",start =c(r_const= 0.2,r_Age=0, r_NbChildren=0, ferchner=1),
+#                 y =ChooseA, p_LA=p_LA , p_RA = p_RA, p_LB= p_LB , p_RB = p_RB , X_LA = X_LA , X_RA=X_RA, X_LB=X_LB, X_RB=X_RB, d=ml_data, cluster=ID)
+
+
+#testmodel2<-mplLL( logLik =  eumodel2 ,method ="NR",start =c(r= 0.2, ferchner=1), fixed="ferchner",
+#                 y =ChooseA, p_LA=p_LA , p_RA = p_RA, p_LB= p_LB , p_RB = p_RB , X_LA = X_LA , X_RA=X_RA, X_LB=X_LB, X_RB=X_RB, d=ml_data, cluster=ID)

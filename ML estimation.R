@@ -7,7 +7,7 @@ ml_data <- genDesign(respondents = nrow(allcountries)) %>%      # Use genDesign 
   select(ID ="RID" ,series, starts_with(c("p_" , "X_") )) %>%    # keep only relevant variables. The rest are from a simulation
   group_by(ID) %>%  mutate(lotteryNo = 1:n()) %>% ungroup  %>%   
   group_by(ID, series)  %>%  mutate(serieslotteryNo = 1:n())%>%  ungroup %>%  
-  left_join(allcountries %>%  select(starts_with("series"), Country, ID, IDfarm, c("Age", "NbChildren", "Trust" , "FarmSize" , "LandOwned" , "IndivOwner", "pw" , "DateEnquete") ) ,
+  left_join(allcountries  %>%  select(starts_with("series"), Country, ID, IDfarm, c("Age", "NbChildren", "Trust" , "FarmSize" , "LandOwned" , "IndivOwner", "pw" , "DateEnquete") ),
             by="ID"  ) %>%  #merge with dataset
   mutate(ChooseA = case_when(series==1 & serieslotteryNo <=series_1_question ~1 , series==2 & serieslotteryNo <=series2_question ~1,  series==3 & serieslotteryNo <=series3_question ~1,   TRUE ~ 0),
          X_LA =case_when(DateEnquete < "2010-03-12" & series==3 & X_LA==10 ~ 50, TRUE~X_LA) # create dependent binary variable
