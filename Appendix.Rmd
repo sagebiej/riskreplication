@@ -1,7 +1,7 @@
 ---
 title: "Appendix for 'Farmers' risk preferences in eleven European farming systems: A multi-country replication of Bocquého et al. (2014)'"
-author: "Author names anonymized for review process"
-date: "Spetember 2022"
+author: "Jens Rommel, Julian Sagebiel, Marieke Baaken, Jesus Barreiro-Hurle, Douadia Bougherara, Luigi Cembalo, Marija Cerjak, Tajana Čop, Mikołaj Czajkowski, María Espinosa-Goded, Julia Höhler, Laure Kuhfuss, Carl-Johan Lagerkvist, Margaux Lapierre, Marianne Lefebvre, Bettina Matzdorf, Edward Ott, Antonio Paparella, Erika Quendler, Macario Rodriguez-Entrena, Christoph Schulze, Tanja Šumrada, Annika Tensi, Sophie Thoyer, Marina Tomić Maksan, Riccardo Vecchio, Marc Willinger, Katarzyna Zagórska"
+date: "October 2022"
 always_allow_html: true
 output:
   bookdown::html_document2: 
@@ -1108,7 +1108,7 @@ knitr::include_graphics(names, dpi = 100)
 
 # Additional resources
 
-The paper, this appendix and all other material are publicly available on the open science framework (OSF) webpage. This includes the following resources:
+The paper, this appendix and all other material are publicly available on the open science framework (OSF) webpage https://osf.io/hvmj6/. This includes the following resources:
 
 - Pre-registration
 
@@ -1116,13 +1116,12 @@ The paper, this appendix and all other material are publicly available on the op
 
 - Videos embedded in the questionnaires in all local languages
 
-- Data (prepared in order to protect respondents privacy) via GitHub
+- Data via GitHub, accessible on OSF
 
-- Code for statistical analysis, creation of tables and figures, and appendix via GitHub
+- Code for statistical analysis, creation of tables and figures, and appendix via GitHub, accessable on OSF
 
 - Ethics approval from the German Association of Experimental Economics
 
-(As the OSF website reveals author information it will be made available only after the review process. The code and data, however, is shared as separate files for review.)
 
 
 
