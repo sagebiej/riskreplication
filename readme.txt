@@ -10,4 +10,3 @@ To generate the appendix html file, knit the file "Appendix.Rmd"
 The original data and code from BJR2014 is in the folder replicate_original.
 
 The file "replication_ml.dta"" is a Stata dataset prepared for ML estimation in Stata. 
-
